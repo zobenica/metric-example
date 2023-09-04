@@ -1,4 +1,6 @@
 /MetricExample.Api/bin/
 /MetricExample.Api/obj/
+/MetricExample.Api/obj/debug/
+/MetricExample.Api/obj/debug/net7.0/*.*
 /.idea/
 

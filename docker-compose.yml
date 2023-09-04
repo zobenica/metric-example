@@ -1,0 +1,43 @@
+﻿services:
+  prometheus:
+    image: prom/prometheus:v2.21.0
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus:/etc/prometheus
+    networks:
+      - backend
+      
+  metricexampleapi:
+    image: metricexample.api
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8380:80
+    networks:
+      - backend
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=Lozinka2#
+    networks:
+      - backend
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+  metricexample_data: {}
+
+networks:
+  backend:

@@ -1,0 +1,12 @@
+﻿global:
+  scrape_interval: 5s
+  scrape_timeout: 4s
+  
+rule_files: 
+# - alerts.yml
+
+scrape_configs:
+  - job_name: 'rfq-metric'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['metricexampleapi']

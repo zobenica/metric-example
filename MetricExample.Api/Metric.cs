@@ -4,16 +4,19 @@ namespace MetricExample.Api;
 
 public class CustomMetric
 {
-    static Meter s_meter = new("RFQ.Metric", "1.0.0");
-    static Counter<int> rfqs = s_meter.CreateCounter<int>("RFQ completed",
-        "RFQ",
-        "Completed RFQ");
-    private static Histogram<double> responseTime = s_meter.CreateHistogram<double>
-    ("RFQ_processing_time"
-    ,unit:"ms", "Processing time per RFQ");
+    static Meter meter = new Meter("RFQ.PricingBroker", "1.0.0");
+
+    static Counter<int> meterRfqSuccess = meter.CreateCounter<int>("RFQcompleted", "{rfq}", "RFQ with status quoted");
+
+    static Counter<int> meterRfqError = meter.CreateCounter<int>("RFQerrored", "{rfq}", "RFQ with status fail or error");
+
+    static Histogram<double> rfqAvgResponseTime = meter.CreateHistogram<double>("RFQresponseTime", "{ms}", "Rfq avg processing time");
+
+    
     public void Add(int i = 1)
     {
-        rfqs.Add(i);
-        responseTime.Record(new Random().Next(1000, 10000));
+        meterRfqSuccess.Add(i * 2);
+        meterRfqError.Add(i);
+        rfqAvgResponseTime.Record(new Random().Next(1000, 10000));
     }
 }
