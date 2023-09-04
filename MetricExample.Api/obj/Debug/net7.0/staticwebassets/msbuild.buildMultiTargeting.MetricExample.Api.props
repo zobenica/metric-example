@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MetricExample.Api.props" />
+</Project>

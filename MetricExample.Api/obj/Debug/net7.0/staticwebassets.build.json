@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fiUy1rPMVNahn5hzv/BAh8/ToEFHBBn7QS5JaO2HwGA=",
+  "Source": "MetricExample.Api",
+  "BasePath": "_content/MetricExample.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
