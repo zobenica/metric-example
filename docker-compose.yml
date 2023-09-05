@@ -1,13 +1,12 @@
 ﻿services:
   prometheus:
-    image: prom/prometheus:v2.21.0
+    image: prometheus-mz
     depends_on:
       - metricexampleapi
     ports:
       - 9090:9090
     volumes:
-      - prometheus_data:/prometheus
-      - ./prometheus:/etc/prometheus
+      - prometheus_data2:/prometheus
     networks:
       - backend
       
@@ -37,7 +36,7 @@
       - backend
 
 volumes:
-  prometheus_data: {}
+  prometheus_data2: {}
   grafana_data: {}
   metricexample_data: {}
 

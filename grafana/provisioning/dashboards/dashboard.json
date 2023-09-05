@@ -15,12 +15,13 @@
       }
     ]
   },
+  "description": "Dashboard for RFQ metrics",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 1,
   "links": [],
-  "liveNow": false,
+  "liveNow": true,
   "panels": [
     {
       "datasource": {
@@ -122,7 +123,9 @@
   "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "RFQ"
+  ],
   "templating": {
     "list": []
   },
@@ -131,8 +134,9 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
+  "timezone": "utc",
   "title": "RFQ Dashboard",
-  "version": 1,
+  "uid": "ef9e0cdd-f568-44ba-be47-a8124ffeb65d",
+  "version": 5,
   "weekStart": ""
 }
