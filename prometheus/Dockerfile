@@ -14,6 +14,4 @@ ENTRYPOINT [ "prometheus", \
              "--config.file=/etc/prometheus/prometheus.yml", \
              "--storage.tsdb.path=/prometheus", \
              "--storage.tsdb.retention=365d", \
-             "--web.console.libraries=/usr/share/prometheus/console_libraries", \
-             "--web.console.templates=/usr/share/prometheus/consoles", \
              "--web.external-url=http://localhost:9090" ] 

@@ -6,7 +6,7 @@
     ports:
       - 9090:9090
     volumes:
-      - prometheus_data2:/prometheus
+      - prometheus_data:/prometheus
     networks:
       - backend
       
@@ -22,21 +22,18 @@
       - backend
 
   grafana:
-    image: grafana/grafana
+    image: grafana-mz
     depends_on:
       - prometheus
     ports:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=Lozinka2#
     networks:
       - backend
 
 volumes:
-  prometheus_data2: {}
+  prometheus_data: {}
   grafana_data: {}
   metricexample_data: {}
 
