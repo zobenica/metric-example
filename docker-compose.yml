@@ -1,6 +1,8 @@
 ﻿services:
   prometheus:
     image: prom/prometheus:v2.21.0
+    depends_on:
+      - metricexampleapi
     ports:
       - 9090:9090
     volumes:
